@@ -1,0 +1,26 @@
+---
+- hosts: am-ppa-local
+  gather_facts: true
+  roles:
+    - { role: "elasticsearch", tags: ["elasticsearch"], become: yes }
+    - { role: "archivematica-pkg", tags: ["archivematica-pkg"], become: yes }
+
+  vars:
+    # archivematica-pkg role
+    archivematica_pkg_am_version: "1.5.1"
+    archivematica_pkg_ss_version: "0.9.1"
+
+    # elasticsearch role
+    elasticsearch_version: "1.7.5"
+    elasticsearch_apt_java_package: "oracle-java8-installer"
+    elasticsearch_java_home: "/usr/lib/jvm/java-8-oracle"
+    elasticsearch_heap_size: "640m"
+    elasticsearch_max_open_files: "65535"
+    elasticsearch_node_max_local_storage_nodes: "1"
+    elasticsearch_index_mapper_dynamic: "true"
+    elasticsearch_memory_bootstrap_mlockall: "true"
+    elasticsearch_install_java: "true"
+    elasticsearch_thread_pools:
+      - "threadpool.bulk.type: fixed"
+      - "threadpool.bulk.size: 50"
+      - "threadpool.bulk.queue_size: 1000"
