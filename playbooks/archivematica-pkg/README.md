@@ -1,25 +1,22 @@
-# archivematica-ppa playbook
+# archivematica-pkg playbook
 
-The provided playbook installs archivematica on a local vagrant VM, from launchpad ppa:archivematica packages
+The provided playbook installs archivematica on a local vagrant VM, from packages
 
 ## How to use
 1. Install roles used by the playbook
   ```
-  $ ansible-galaxy install -r requirements.yml
+  $ ansible-galaxy install -f -p roles/ -r requirements.yml
   ```  
-2. Create the test VM using vagrant  
+2. Create the test VM using vagrant and provision it 
   ```
   $ vagrant up
   ```
-3. Run playbook to install Archivematica on the vagrant VM  
+3. To ssh to the VM: 
   ```
-  $ ansible-playbook -i hosts singlenode.yml
+  $ vagrant ssh
   ```
-4. To ssh to the VM, use the provided ssh.config file. Example:
+4. If you want to forward your SSH agent too, run:
   ```
-  $ ssh -F ssh.config 192.168.168.194
+  $ vagrant ssh -- -A
   ```
 
-  
-## Notes
-vagrant configuration uses the guidelines [here](http://hakunin.com/six-ansible-practices#build-a-convenient-local-playground).

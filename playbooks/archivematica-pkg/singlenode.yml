@@ -1,5 +1,5 @@
 ---
-- hosts: am-ppa-local
+- hosts: am-pkg-local
   gather_facts: true
   roles:
     - { role: "elasticsearch", tags: ["elasticsearch"], become: yes }
