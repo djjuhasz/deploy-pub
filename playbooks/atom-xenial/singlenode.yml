@@ -52,3 +52,7 @@
       become: "yes"
       tags:
         - "atom"
+      notify:
+        - Clear sf_cache
+        - Reload nginx
+        - Restart php-fpm
