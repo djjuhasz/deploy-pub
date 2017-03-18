@@ -16,7 +16,7 @@ ufw_rules:
 # list of profiles located in /etc/ufw/applications.d
 ufw_applications: []
 # /etc/defaut/ufw settings
-ufw_ipv6: "yes"
+ufw_ipv6: no
 ufw_default_input_policy: DROP
 ufw_default_output_policy: ACCEPT
 ufw_default_forward_policy: DROP
