@@ -1,15 +1,18 @@
 ---
 - hosts: "atom"
-  gather_facts: False # Required to bootstrap python install
+  gather_facts: no
 
   pre_tasks:
+
     # Bootstrap python on target node (required for ansible to work)
     - name: install python 2
       raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
 
-    - setup: # Turn gather_facts back on
-
     - include_vars: "vars-singlenode.yml"
+      tags:
+        - "always"
+
+    - setup: # Now gather_facts
       tags:
         - "always"
 
