@@ -31,6 +31,7 @@ ufw_reset: yes
 # atom role
 #
 
+php_fpm_name: "php7.0-fpm"
 atom_path: "/usr/share/nginx/atom"
 atom_repository_url: "https://github.com/artefactual/atom.git"
 atom_repository_version: "qa/2.4.x"
